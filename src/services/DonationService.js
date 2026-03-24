@@ -364,6 +364,7 @@ class DonationService {
    * @returns {Object} Created transaction
    */
   async createDonationRecord({ amount, donor, recipient, memo, memoType = 'text', idempotencyKey, receivedAmount, sessionId }) {
+  async createDonationRecord({ amount, currency = 'XLM', donor, recipient, memo, idempotencyKey, receivedAmount, sessionId }) {
     // Sanitize identifiers
     const sanitizedDonor = donor ? sanitizeIdentifier(donor) : 'Anonymous';
     const sanitizedRecipient = sanitizeIdentifier(recipient);
